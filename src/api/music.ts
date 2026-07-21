@@ -6,10 +6,10 @@ export async function searchMusic(keywords: any) {
     let { data } = await axios.get(`${API_BASE_URL}/search`, {
       params: {
         keywords,
-        randomCNIP: true,  // 解决 Vercel 部署 IP 被限制的问题
-        timeout: 30000,
-        withCredentials: true
-      }
+        randomCNIP: true,
+      },
+      timeout: 30000,
+      withCredentials: true,
     })
     const songs = data.result.songs
     const formatted = songs.map((song: any) => {
@@ -19,7 +19,7 @@ export async function searchMusic(keywords: any) {
         artist: song.artists[0].name,
         cover: `https://picsum.photos/200/200?seed=${song.id}`,
         url: '',
-        liked: false
+        liked: false,
       }
     })
     return formatted
@@ -33,8 +33,10 @@ export async function getSongUrl(id: number) {
     let { data } = await axios.get(`${API_BASE_URL}/song/url`, {
       params: {
         id,
-        randomCNIP: true
-      }
+        randomCNIP: true,
+      },
+      timeout: 30000,
+      withCredentials: true,
     })
     const url = data.data[0]?.url || ''
     return url
@@ -49,8 +51,9 @@ export async function getSongDetail(id: number) {
       params: {
         ids: id,
         randomCNIP: true,
-
-      }
+      },
+      timeout: 30000,
+      withCredentials: true,
     })
 
     const songData = response.data.songs?.[0]
@@ -64,7 +67,7 @@ export async function getSongDetail(id: number) {
       artist: songData.ar?.map((a: any) => a.name).join(' / ') || '',
       cover: songData.al?.picUrl || 'https://picsum.photos/200/200?seed=default',
       url: '',
-      liked: false
+      liked: false,
     }
   } catch {
     return null
