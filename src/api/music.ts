@@ -6,7 +6,9 @@ export async function searchMusic(keywords: any) {
     let { data } = await axios.get(`${API_BASE_URL}/search`, {
       params: {
         keywords,
-        randomCNIP: true  // 解决 Vercel 部署 IP 被限制的问题
+        randomCNIP: true,  // 解决 Vercel 部署 IP 被限制的问题
+        timeout: 30000,
+        withCredentials: true
       }
     })
     const songs = data.result.songs
@@ -47,7 +49,7 @@ export async function getSongDetail(id: number) {
       params: {
         ids: id,
         randomCNIP: true,
-        timeout: 30000
+
       }
     })
 
