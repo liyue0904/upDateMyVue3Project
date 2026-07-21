@@ -46,7 +46,8 @@ export async function getSongDetail(id: number) {
     const response = await axios.get(`${API_BASE_URL}/song/detail`, {
       params: {
         ids: id,
-        randomCNIP: true
+        randomCNIP: true,
+        timeout: 30000
       }
     })
 
