@@ -1,0 +1,31 @@
+:root {
+  --bg-color: #ffffff;
+  /* 页面背景色 */
+  --text-color: #333333;
+  /* 文字颜色 */
+  --card-bg: #ffffff;
+  /* 卡片背景色（白色） */
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  /* 卡片的阴影颜色 */
+  --btn-bg: linear-gradient(135deg, #87CEEB, #FFD700);
+
+  --btn-glow: 0 0 30px rgba(255, 200, 50, 0.3);
+
+  --player-bg: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  /* 页面背景色（深色） */
+  --text-color: #e0e0e0;
+  /* 文字颜色（浅色） */
+  --card-bg: #2a2a2a;
+  /* 卡片背景色（深灰） */
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  /* 卡片阴影更深一些 */
+  --btn-bg: linear-gradient(135deg, #1a1a3e, #4a1942);
+
+  --btn-glow: 0 0 30px rgba(100, 150, 255, 0.3);
+
+  --player-bg: rgba(100, 144, 225, 0.85);
+}
